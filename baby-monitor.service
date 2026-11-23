@@ -1,0 +1,16 @@
+[Unit]
+Description=Baby Monitor Cry Detection
+After=network-online.target sound.target
+Wants=network-online.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/baby_monitor
+# Secrets live in .env (gitignored), not in this file
+EnvironmentFile=/home/pi/baby_monitor/.env
+ExecStart=/home/pi/baby_monitor/venv/bin/python3 /home/pi/baby_monitor/cry_detection.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

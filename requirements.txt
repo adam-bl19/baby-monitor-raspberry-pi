@@ -1,0 +1,7 @@
+sounddevice
+numpy
+scipy
+flask
+opencv-python
+paramiko
+picamera2
